@@ -1,25 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toyup</title>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <!-- remix icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/utility.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>toyup</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <!-- remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/index.css" />
+  <link rel="stylesheet" href="./assets/css/utility.css" />
 </head>
+
 <body>
 
-    <header></header>   
+  <header>
+    <nav class="navbar navbar-expand-lg bg-primary-custom py-3">
+      <div class="container">
 
-    <main></main>
+        <!--logo  -->
 
-    <footer></footer>
+        <a class="navbar-brand" href="#">
+          <img src="./assets/media/images/light_logo.svg" alt="">
+        </a>
 
-    <!-- bootstrap -->
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- toggle button -->
+        <div class="d-flex gap-3 ms-auto">
+
+          <!-- toggler -->
+          <button class="navbar-toggler text-white shadow-none py-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="ri-menu-fill"></i>
+          </button>
+
+        </div>
+
+        <!-- nav links -->
+        <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+
+            <li class="nav-item">
+              <a class="nav-link active text-white text-hover" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#store">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#gallery">Gallery</a>
+            </li>
+
+            <!-- dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white text-hover" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu bg-primary-custom  border-0">
+                <li><a class="dropdown-item text-white" href="./cart.html">Cart</a></li>
+                <li><a class="dropdown-item text-white" href="./store.html">Store</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Coming soon</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- cart  -->
+            <div class="ms-auto">
+              <button type="button" class="border-0 position-relative navbar-round-btn text-white">
+                <i class="ri-shopping-cart-2-fill"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-rating">
+                  0
+                </span>
+              </button>
+            </div>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main></main>
+
+  <footer></footer>
+
+  <!-- bootstrap -->
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

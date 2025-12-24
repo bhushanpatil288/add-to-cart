@@ -3,3 +3,31 @@
 body{
     font-family: "Baloo 2", sans-serif;
 }
+
+/* header start */
+
+/* navbar start*/
+
+
+/* modify bootstrap classes */
+.dropdown-menu{
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear !important;
+    position: fixed !important;
+}
+
+.dropdown:hover .dropdown-menu{
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropdown-item:hover{
+    color: #333 !important;
+}
+/* modify bootstrap classes */
+
+/* navbar end */
+
+/* header end */

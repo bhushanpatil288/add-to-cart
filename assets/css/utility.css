@@ -1,5 +1,3 @@
-/* text utilities start*/
-
 /* p = primary */
 :root{
     --p : #35BAAC;
@@ -7,13 +5,51 @@
     --rating-color: #f88e0f;
 }
 
+/* text utilities start*/
 
 .text-primary-custom{
-    color: var(--p-dark);
+    color: var(--p-dark) !important;
 }
 
 .rating-color{
-    color: var(--rating-color);
+    color: var(--rating-color) !important;
+}
+
+.text-hover{
+    transition: all 0.2s linear;
+}
+.text-hover:hover{
+    color: #ffffffb1 !important;
 }
 
 /* text utilities end */
+
+/* backgrounds start */
+
+.bg-primary-custom{
+    background-color: var(--p) !important;
+}
+
+.bg-rating{
+    background-color: var(--rating-color) !important;
+}
+
+/* backgrounds end */
+
+/* buttons start */
+
+.navbar-round-btn{
+    background-color: var(--p-dark);
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.navbar-round-btn i{
+    transition: all 0.2s linear;
+}
+.navbar-round-btn:hover i{
+    color: #ffffffcd;
+}
+
+/* buttons end */
