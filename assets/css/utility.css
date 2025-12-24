@@ -1,0 +1,19 @@
+/* text utilities start*/
+
+/* p = primary */
+:root{
+    --p : #35BAAC;
+    --p-dark : #2D9F94;
+    --rating-color: #f88e0f;
+}
+
+
+.text-primary-custom{
+    color: var(--p-dark);
+}
+
+.rating-color{
+    color: var(--rating-color);
+}
+
+/* text utilities end */
