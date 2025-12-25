@@ -162,4 +162,18 @@ header{
 
 /* marquee section end */
 
+/* brands section start */
+
+.brand-logo img{
+    cursor: pointer;
+    filter: grayscale(1);
+    transition: all 0.2s linear;
+}
+
+.brand-logo:hover img{
+    filter: grayscale(0);
+}
+
+/* brands section end */
+
 /* main end */
