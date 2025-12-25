@@ -1,5 +1,6 @@
 /* p = primary */
 :root{
+    --p-light : #3fdfcf;
     --p : #35BAAC;
     --p-dark : #2D9F94;
     --p-darkest : #22726a;
@@ -28,6 +29,14 @@
 }
 
 /* text utilities end */
+
+/* borders start */
+
+.border-primary-custom{
+    border: 1px solid var(--p-light);
+}
+
+/* borders end */
 
 /* backgrounds start */
 
@@ -58,3 +67,12 @@
 }
 
 /* buttons end */
+
+
+/* margin and padding start*/
+
+.mt-20{
+    margin-top: 120px;
+}
+
+/* margin and padding end */

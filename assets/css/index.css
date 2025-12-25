@@ -9,6 +9,10 @@ body{
 
 /* header start */
 
+header{
+    z-index: 999;
+}
+
 /* navbar start*/
 
 
@@ -108,5 +112,27 @@ body{
 }
 
 /* hero section end */
+
+
+/* blog section start */
+
+.blog-card{
+    box-shadow: 10px 5px 50px 0px rgb(225, 225, 225);
+}
+
+.blog-img{
+    transition: all 0.3s linear;
+}
+
+.blog-card:hover .blog-img{
+    scale: 1.1;
+}
+
+.round-img-container{
+    width: 50px;
+}
+
+/* blog section end */
+
 
 /* main end */
