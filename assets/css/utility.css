@@ -2,6 +2,7 @@
 :root{
     --p : #35BAAC;
     --p-dark : #2D9F94;
+    --p-darkest : #22726a;
     --rating-color: #f88e0f;
 }
 
@@ -9,6 +10,10 @@
 
 .text-primary-custom{
     color: var(--p-dark) !important;
+}
+
+.text-primary-custom-darker{
+    color: var(--p-darkest) !important;
 }
 
 .rating-color{
