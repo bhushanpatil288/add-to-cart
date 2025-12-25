@@ -4,6 +4,7 @@
     --p : #35BAAC;
     --p-dark : #2D9F94;
     --p-darkest : #22726a;
+    --s : #FEF7EC;
     --rating-color: #f88e0f;
 }
 
@@ -46,6 +47,10 @@
 
 .bg-primary-custom{
     background-color: var(--p) !important;
+}
+
+.bg-secondary-custom{
+    background-color: var(--s) !important;
 }
 
 .bg-rating{

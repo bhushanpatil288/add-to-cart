@@ -123,6 +123,35 @@ header{
 
 /* hero section end */
 
+/* mini-shop section start */
+
+.toy-card{
+    cursor: pointer;
+    height: 100%;
+}
+
+.toy-card img{
+    transition: all 0.2s linear;
+}
+.toy-card:hover img{
+    scale: 1.3;
+}
+
+.add-to-cart-btn{
+    border: none;
+    background-color: var(--p);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.add-to-cart-btn:hover{
+    background-color: var(--rating-color);
+}
+
+/* mini-shop section end */
 
 /* blog section start */
 
