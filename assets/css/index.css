@@ -25,6 +25,11 @@ header{
     position: fixed !important;
 }
 
+.dropdown-menu li a{
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
 .dropdown:hover .dropdown-menu{
     visibility: visible;
     opacity: 1;
@@ -32,6 +37,11 @@ header{
 
 .dropdown-item:hover{
     color: #333 !important;
+}
+
+.nav-item{
+    font-weight: bold;
+    font-size: 20px;
 }
 /* modify bootstrap classes */
 
@@ -117,7 +127,12 @@ header{
 /* blog section start */
 
 .blog-card{
+    display: flex;
+    flex-direction: column;
     box-shadow: 10px 5px 50px 0px rgb(225, 225, 225);
+    height: 100%;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .blog-img{
