@@ -177,3 +177,76 @@ header{
 /* brands section end */
 
 /* main end */
+
+
+
+/* footer start */
+
+footer{
+    padding-top: 100px;
+    background-color: #EEFBFA;
+}
+
+/* main footer section start */
+
+.underline{
+    white-space: nowrap;
+}
+
+.underline::after{
+    content: '';
+    position: absolute;
+    background-color: var(--rating-color);
+    width: 40px;
+    height: 4px;
+    border-radius: 20px;
+    top: 40px;
+    left: 0;
+}
+
+.footer-link{
+    transition: all 0.2s linear;
+}
+.footer-link:hover{
+    color: var(--rating-color) !important;
+}
+
+
+.footer-form-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    padding: 10px 16px;
+    background-color: var(--rating-color);
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s linear;
+    position: absolute;
+    right: 10px;
+}
+
+.footer-form-btn:hover{
+    background-color: var(--p);
+}
+
+.footer-social-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--p);
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.footer-social-btn:hover{
+    background-color: var(--p);
+    color: white;
+    border: 2px solid white;
+}
+
+/* main footer section end */
+
+/* footer end */

@@ -36,6 +36,10 @@
     border: 1px solid var(--p-light);
 }
 
+.outline-none{
+    outline: none;
+}
+
 /* borders end */
 
 /* backgrounds start */
@@ -64,6 +68,16 @@
 }
 .navbar-round-btn:hover i{
     color: #ffffffcd;
+}
+
+.footer-icon{
+    background-color: rgb(255, 255, 255);
+    padding: 10px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 3px rgb(221, 221, 221);
 }
 
 /* buttons end */
