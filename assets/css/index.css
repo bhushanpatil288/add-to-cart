@@ -134,5 +134,32 @@ header{
 
 /* blog section end */
 
+/* marquee section start */
+
+.marquee-slider{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-item{
+    font-size: 2em;
+    gap: 30px;
+    display: flex;
+    will-change: transform;
+    animation: marquee_left 30s linear infinite
+}
+
+@keyframes marquee_left {
+    0%{
+        transform: translateX(0);
+    } 100% {
+        transform: translateX(-100%)
+    }
+}
+
+/* marquee section end */
 
 /* main end */
