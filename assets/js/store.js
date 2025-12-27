@@ -1,3 +1,6 @@
+const countBadge = document.querySelectorAll(".countBadge");
+const toyCardsContainer = document.querySelector(".toyCardsContainer"); 
+
 const products = [
   {
     id: 1,
@@ -180,3 +183,56 @@ const products = [
     quantity: 1
   }
 ];
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    renderProducts();
+    updateBadge();
+})
+
+function loadLocalStorage(){
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    if(!cart){
+        return [];
+    } else {
+        return cart;
+    }
+}
+
+function renderProducts(){
+    toyCardsContainer.innerHTML = "";
+    products.forEach((product,idx)=>{
+        toyCardsContainer.innerHTML += `
+        <div class="col-12 col-md-6 col-xl-4 gy-4">
+            <div class="toy-card bg-white px-3 py-2 rounded-4 shadow">
+              <div class="overflow-hidden">
+                <img class="img-fluid" src="${product.path}" alt="${product.name}">
+              </div>
+              <div class="d-flex justify-content-around flex-column">
+                <div>
+                    <p class="category">${product.category}</p>
+                    <h3>${product.name}</h3>    
+                    <p class="price text-primary-custom fs-2 fw-semibold m-0">$${(product.price).toFixed(2)}</p>
+                </div>
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                  <button onClick="addToCart(${product.id})" class="add-to-cart-btn d-flex justify-content-center align-items-center gap-1 mt-3 mb-2">
+                    <span class="fs-5"><i class="ri-shopping-bag-4-line"></i></span>
+                    <p class="m-0">Add to cart</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      `
+    })
+}
+
+function saveLocalStorage(cart){
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateBadge(){
+  const cart = loadLocalStorage(); 
+  const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
+  countBadge.forEach(badge => badge.innerHTML = q);
+}

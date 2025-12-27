@@ -91,27 +91,46 @@
 
       </div>
     </nav>
+  </header>
+  
+  <main>
+
     <div style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="container">
       <ol class="breadcrumb mt-3">
         <li class="breadcrumb-item"><a class="text-decoration-none text-primary-custom-darker" href="./index.html">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Store</li>
       </ol>
     </div>
-  </header>
-
-  <main>
 
     <!-- shop section start -->
 
     <section id="mainShop" class="bg-secondary-custom">
       <div class="container">
 
-        <div class="d-flex justify-content-center flex-column align-items-center py-5">
-          <h2 class="text-center">Explore Popular Toy Set</h2>
-          <p class="w-25 text-center text-primary-custom-darker">Loos?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto harum culpa beatae?</p>
-        </div>
         <div class="row">
-          <div class="col-4"></div>
+          <div class="col-4">
+            <form class="pt-5">
+              <div class="d-flex gap-2">
+                <select name="filter" id="filter" class="form-select">
+                  <option value="">Filter by category</option>
+                  <option value="1">Animal Toys</option>
+                  <option value="2">Building Toys</option>
+                  <option value="3">Character Toys</option>
+                  <option value="4">Collectible Toys</option>
+                  <option value="5">Educational Toys</option>
+                  <option value="6">Musical Toys</option>
+                  <option value="7">Outdoor & Pool Toys</option>
+                  <option value="8">Outdoor Playsets</option>
+                  <option value="9">PlayZone Outdoors</option>
+                  <option value="10">Robot Toys</option>
+                  <option value="11">Soft Toys</option>
+                  <option value="12">Toddler Toys</option>
+                  <option value="13">Vehicle Toys</option>
+                </select>
+                <button type="submit" class="btn bg-primary-custom text-white">Apply</button>
+              </div>
+            </form>
+          </div>
           <div class="col-8">
             <div class="row pb-5 toyCardsContainer">
               
