@@ -16,7 +16,7 @@ function renderCart(){
 
                     <div  class="shop-cart d-flex p-3 gap-4 align-items-center justify-content-between py-4 bg-white rounded-4 h-100 shadow">
                         <!-- left side -->
-                        <div class="border bg-primary-subtle rounded-4 shadow w-25">
+                        <div class="border bg-primary-subtle rounded-4 shadow w-25 overflow-hidden">
                             <img class="img-fluid" src="${item.path}" alt="${item.name}">
                         </div>
 
@@ -26,7 +26,7 @@ function renderCart(){
                             
                             <div class="d-flex justify-content-between w-100">
                                 <h4>${item.name}</h4>
-                                <button class="btn"><i class="ri-close-line"></i></button>
+                                <button class="btn" onClick="removeItem(${item.id})"><i class="ri-close-line"></i></button>
                             </div>
 
                             <div class="w-100">
@@ -41,7 +41,7 @@ function renderCart(){
                                     <button class="btn bg-white rounded-circle shadow decrease"><i class="ri-add-line"></i></button>
                                 </div>
                                 <div>
-                                    <p class="m-0 text-primary-custom fs-3 fw-bold">${item.price * item.quantity}</p>
+                                    <p class="m-0 text-primary-custom fs-3 fw-bold">${(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
                             </div>
 
@@ -54,6 +54,14 @@ function renderCart(){
     })
 }
 
+function removeItem(id){
+    const cart = loadLocalStorage();
+    const idx = cart.findIndex(item=> item.id === id);
+    cart.splice(idx, 1);
+    saveLocalStorage(cart);
+    renderCart()
+    updateBadge
+}
 
 function loadLocalStorage(){
     const cart = JSON.parse(localStorage.getItem('cart'));

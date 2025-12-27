@@ -97,7 +97,7 @@ function renderProducts(){
                 <div>
                     <p class="category">${product.category}</p>
                     <h3>${product.name}</h3>    
-                    <p class="price text-primary-custom fs-2 fw-semibold m-0">$${product.price}</p>
+                    <p class="price text-primary-custom fs-2 fw-semibold m-0">$${(product.price).toFixed(2)}</p>
                 </div>
                 <div class="d-flex justify-content-center align-items-center gap-3">
                   <button onClick="addToCart(${product.id})" class="add-to-cart-btn d-flex justify-content-center align-items-center gap-1 mt-3 mb-2">

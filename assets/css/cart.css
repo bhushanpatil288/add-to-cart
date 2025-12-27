@@ -22,6 +22,18 @@
     color: white !important;
 }
 
+.shop-cart img{
+    cursor: pointer;
+}
+
+.shop-cart img{
+    transition: all 0.2s linear;
+}
+
+.shop-cart:hover img{
+    transform: scale(1.1);
+}
+
 /* cart section end */
 
 
