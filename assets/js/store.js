@@ -1,5 +1,6 @@
 const countBadge = document.querySelectorAll(".countBadge");
 const toyCardsContainer = document.querySelector(".toyCardsContainer"); 
+const catFilterBtn = document.querySelector("#catFilterBtn");
 
 const products = [
   {
@@ -184,10 +185,40 @@ const products = [
   }
 ];
 
+const categories_filter = {
+    1: 'Animal Toys',
+    2: 'Building Toys',
+    3: 'Character Toys',
+    4: 'Collectible Toys',
+    5: 'Educational Toys',
+    6: 'Musical Toys',
+    7: 'Outdoor & Pool Toys',
+    8: 'Outdoor Playsets',
+    9: 'PlayZone Outdoors',
+    10: 'Robot Toys',
+    11: 'Soft Toys',
+    12: 'Toddler Toys',
+    13: 'Vehicle Toys'
+}
+
 
 document.addEventListener('DOMContentLoaded', function(){
-    renderProducts();
+    renderProducts(products);
     updateBadge();
+
+    catFilterBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const catFilter = document.querySelector("#cat-filter").value;
+        if(!catFilter){
+            renderProducts(products);
+            return;
+        }
+        const FilteredProducts = products.filter(product=> product.category === categories_filter[catFilter]);
+        console.log(FilteredProducts);
+        renderProducts(FilteredProducts);
+        
+    })
+
 })
 
 function loadLocalStorage(){
@@ -199,7 +230,7 @@ function loadLocalStorage(){
     }
 }
 
-function renderProducts(){
+function renderProducts(products){
     toyCardsContainer.innerHTML = "";
     products.forEach((product,idx)=>{
         toyCardsContainer.innerHTML += `
@@ -235,4 +266,26 @@ function updateBadge(){
   const cart = loadLocalStorage(); 
   const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
   countBadge.forEach(badge => badge.innerHTML = q);
+}
+
+function addToCart(id){
+  const cart = loadLocalStorage();
+  if(alreadyExists(id)){
+    const idx = cart.findIndex(product => product.id === id);
+    cart[idx].quantity++;
+
+    saveLocalStorage(cart);
+
+    updateBadge();
+    return;
+  }
+  const product = products.find(p => id === p.id);
+  cart.push({...product, quantity: 1});
+  saveLocalStorage(cart);
+  updateBadge();
+}
+
+function alreadyExists(id){
+  const cart = loadLocalStorage();
+  return cart.find(product=>product.id === id);
 }
