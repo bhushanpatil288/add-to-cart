@@ -67,10 +67,12 @@ const products = [
 ];
 
 const toyCardsContainer = document.querySelector(".toyCardsContainer");
+const countBadge = document.querySelector(".countBadge");
 
 
 document.addEventListener("DOMContentLoaded", function(){
     renderProducts();
+    updateBadge();
 })
 
 function renderProducts(){
@@ -96,15 +98,32 @@ function renderProducts(){
               </div>
             </div>
           </div>
-    `
+      `
     })
 }
 
+function alreadyExists(id){
+  const cart = loadLocalStorage();
+  return cart.find(product=>product.id === id);
+}
+
 function addToCart(id){
-    const product = products.find(p => id === p.id);
+  if(alreadyExists(id)){
     const cart = loadLocalStorage();
-    cart.push(product);
+    const idx = cart.findIndex(product => product.id === id);
+    console.log(idx);
+    cart[idx].quantity++;
+
     saveLocalStorage(cart);
+
+    updateBadge();
+    return;
+  }
+  const product = products.find(p => id === p.id);
+  const cart = loadLocalStorage();
+  cart.push(product);
+  saveLocalStorage(cart);
+  updateBadge();
 }
 
 function loadLocalStorage(){
@@ -118,4 +137,10 @@ function loadLocalStorage(){
 
 function saveLocalStorage(cart){
     localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateBadge(){
+  const cart = loadLocalStorage(); 
+  console.log(cart.length);
+  countBadge.innerHTML = cart.length;
 }
