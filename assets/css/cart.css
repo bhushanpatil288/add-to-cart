@@ -1,0 +1,29 @@
+/* main start */
+
+/* cart section start */
+
+.quantity-wrapper{
+    background-color: aliceblue;
+    box-shadow: inset 0px 0px 10px 3px rgb(201, 201, 201);
+}
+
+.quantity-wrapper button{
+    transition: all 0.2s linear;
+}
+
+.quantity-wrapper button:hover{
+    box-shadow: inset 0px 0px 10px 1px rgb(108, 108, 108) !important;
+    background-color: var(--rating-color) !important;
+    color: white;
+}
+.quantity-wrapper button:active{
+    box-shadow: inset 0px 0px 10px 1px rgb(108, 108, 108) !important;
+    background-color: var(--rating-color) !important;
+    color: white !important;
+}
+
+/* cart section end */
+
+
+
+/* main end */

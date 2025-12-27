@@ -5,6 +5,7 @@ const products = [
     name: "Musical Guitar & Maracas Set",
     category: "Musical Toys",
     price: 24.99,
+    vendor: "Happy Tunes Toys",
     path: "./assets/media/images/product-imgs/product-1.png",
     quantity: 1
   },
@@ -13,6 +14,7 @@ const products = [
     name: "Parrot Swim Ring Float",
     category: "Outdoor & Pool Toys",
     price: 18.49,
+    vendor: "Splash & Play Co.",
     path: "./assets/media/images/product-imgs/product-2.png",
     quantity: 1
   },
@@ -21,6 +23,7 @@ const products = [
     name: "Construction Dump Truck Blocks",
     category: "Building Toys",
     price: 29.99,
+    vendor: "BuildSmart Kids",
     path: "./assets/media/images/product-imgs/product-3.png",
     quantity: 1
   },
@@ -29,6 +32,7 @@ const products = [
     name: "Teddy Bear Cupcake Plush",
     category: "Soft Toys",
     price: 16.75,
+    vendor: "CuddleCraft",
     path: "./assets/media/images/product-imgs/product-4.png",
     quantity: 1
   },
@@ -37,6 +41,7 @@ const products = [
     name: "Kids Playground Slide Set",
     category: "Outdoor Playsets",
     price: 89.99,
+    vendor: "PlayZone Outdoors",
     path: "./assets/media/images/product-imgs/product-5.png",
     quantity: 1
   },
@@ -45,6 +50,7 @@ const products = [
     name: "Friendly Monster Gift Toy",
     category: "Character Toys",
     price: 21.5,
+    vendor: "Monster Fun Factory",
     path: "./assets/media/images/product-imgs/product-6.png",
     quantity: 1
   },
@@ -53,6 +59,7 @@ const products = [
     name: "Wooden Numbers & Blocks Set",
     category: "Educational Toys",
     price: 19.95,
+    vendor: "Learn & Play Woodworks",
     path: "./assets/media/images/product-imgs/product-7.png",
     quantity: 1
   },
@@ -61,10 +68,12 @@ const products = [
     name: "Classic Wind-Up Robot Toy",
     category: "Robot Toys",
     price: 14.99,
+    vendor: "RetroToy Makers",
     path: "./assets/media/images/product-imgs/product-8.png",
     quantity: 1
   },
 ];
+
 
 const toyCardsContainer = document.querySelector(".toyCardsContainer");
 const countBadge = document.querySelector(".countBadge");
@@ -112,7 +121,6 @@ function addToCart(id){
   const cart = loadLocalStorage();
   if(alreadyExists(id)){
     const idx = cart.findIndex(product => product.id === id);
-    console.log(idx);
     cart[idx].quantity++;
 
     saveLocalStorage(cart);
@@ -141,6 +149,6 @@ function saveLocalStorage(cart){
 
 function updateBadge(){
   const cart = loadLocalStorage(); 
-  console.log(cart.length);
-  countBadge.innerHTML = cart.length;
+  const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
+  countBadge.innerHTML = q;
 }

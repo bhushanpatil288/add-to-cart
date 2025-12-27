@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>toyup - cart</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <!-- remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/index.css" />
+  <link rel="stylesheet" href="./assets/css/cart.css">
+  <link rel="stylesheet" href="./assets/css/utility.css" />
+</head>
+
+<body>
+
+  <header class="position-sticky top-0">
+    <nav class="navbar navbar-expand-lg bg-primary-custom py-2">
+      <div class="container">
+
+        <!--logo  -->
+
+        <a class="navbar-brand" href="#">
+          <img src="./assets/media/images/light_logo.svg" alt="">
+        </a>
+
+        <!-- toggle button -->
+        <div class="d-flex gap-3 ms-auto">
+
+          <!-- toggler -->
+          <button class="navbar-toggler text-white shadow-none py-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="ri-menu-fill"></i>
+          </button>
+
+        </div>
+
+        <!-- nav links -->
+        <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+
+            <li class="nav-item">
+              <a class="nav-link active text-white text-hover" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#store">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white text-hover" href="#brands">Partners</a>
+            </li>
+
+            <!-- dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white text-hover" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu bg-primary-custom  border-0">
+                <li><a class="dropdown-item text-white" href="./cart.html">Cart</a></li>
+                <li><a class="dropdown-item text-white" href="./store.html">Store</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Coming soon</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- cart  -->
+            <div class="ms-auto d-flex justify-content-center align-items-center">
+              <button type="button" class="border-0 position-relative navbar-round-btn text-white fw-bold">
+                <i class="ri-shopping-cart-2-fill"></i>
+                <span class="countBadge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-rating">
+                  0
+                </span>
+              </button>
+            </div>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- cart section start -->
+
+    <section id="cart" class="bg-secondary-custom mt-5">
+      <div class="container">
+
+        <div class="d-flex justify-content-center flex-column align-items-center py-5">
+          <h1>Shopping Cart <span class="badge rounded-circle text-bg-secondary countBadge bg-primary-custom">0</span></h1>
+        </div>
+
+        <div class="row pb-5 cart-wrapper gy-4">
+            <div class="col-6 h-100">
+                <div>
+
+                    <div  class="shop-cart d-flex p-3 gap-4 align-items-center py-4 bg-white rounded-3 h-100">
+                        <!-- left side -->
+                        <div class="border bg-primary-subtle">
+                            <img class="img-fluid" src="./assets/media/images/product-imgs/product-12.png" alt="">
+                        </div>
+
+                        <!-- right side -->
+                        <div class="d-flex flex-column justify-content-between align-items-center gap-4">
+
+                            
+                            <div class="d-flex">
+                                <h4>Echwizs Marvels: Electronic Playtime Experience!</h4>
+                                <button class="btn"><i class="ri-close-line"></i></button>
+                            </div>
+
+                            <!-- quantity & price -->
+                            <div class="d-flex justify-content-between w-100 align-items-center">
+                                <div class="quantity-wrapper px-2 py-1 rounded-5 d-flex gap-3 align-items-center justify-content-center">
+                                    <button class="btn bg-white rounded-circle m-1 shadow increase"><i class="ri-subtract-line"></i></button>
+                                    <span class="mt-2">0</span>
+                                    <button class="btn bg-white rounded-circle shadow decrease"><i class="ri-add-line"></i></button>
+                                </div>
+                                <div>
+                                    <p class="m-0">Price: <span>$10.23</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- cart section end -->
+
+  </main>
+
+  <footer>
+
+    <!-- main footer section start -->
+    <section>
+      <div class="container">
+        <div class="row text-primary-custom-darker gy-4">
+          <div class="col-12 col-md-4 col-xl-3 overflow-hidden">
+            <div>
+              <img src="./assets/media/images/dark_logo.svg" alt="dark-logo">
+            </div>
+            <p class="mt-3 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, dolores.</p>
+            <ul class="list-unstyled d-flex flex-column gap-4">
+              <li class="d-flex gap-4">
+                <span class="footer-icon"><i class="ri-map-pin-line"></i></span>
+                <p class="m-0 d-flex justify-content-center align-items-center">256, pandesara, surat</p>
+              </li>
+              <li class="d-flex gap-4">
+                <span class="footer-icon"><i class="ri-phone-line"></i></span>
+                <p class="m-0 d-flex justify-content-center align-items-center">+91 926-582-7402</p>
+              </li>
+              <li class="d-flex gap-4">
+                <span class="footer-icon"><i class="ri-mail-line"></i></span>
+                <p class="m-0 d-flex justify-content-center align-items-center">sharewithbhushan@gmail.com</p>
+              </li>
+              <li class="d-flex gap-4">
+                <span class="footer-icon"><i class="ri-building-4-fill"></i></span>
+                <p class="m-0 d-flex justify-content-center align-items-center">+000-1234-550000</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4 col-xl-3 overflow-hidden">
+            <h4 class="text-dark fw-semibolds position-relative">
+              <span class="underline">Services</span>
+            </h4>
+            <ul class="list-unstyled d-flex flex-column gap-4 mt-5">
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Service Offering</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">How it Works</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Pricing Table</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Service area</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Service FAQs</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Contact Information</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4 col-xl-3 overflow-hidden">
+            <h4 class="text-dark fw-semibolds position-relative">
+              <span class="underline">Customer Support</span>
+            </h4>
+            <ul class="list-unstyled d-flex flex-column gap-4 mt-5">
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Contact Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Store List</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Opening Hours</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Returns & Exchanges</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Refund and Returns</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-primary-custom-darker footer-link">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+           <div class="col-12 col-md-4 col-xl-3">
+            <h4 class="text-dark fw-semibolds position-relative">
+              <span class="underline">Subscribe to Our NewsLetter</span>
+            </h4>
+            <p class="mt-5">With our newsletter, you'll never miss an important update.</p>
+            <form class="bg-white shadow rounded-5 position-relative">
+              <div class="d-flex justify-content-between px-3 py-3 rounded-5 align-items-center">
+                <div class="d-flex gap-3">
+                  <span><i class="ri-mail-line"></i></span>
+                  <input type="email" placeholder="Email Address" class="border-0 outline-none">
+                </div>
+                <button class="footer-form-btn">
+                  <i class="ri-arrow-right-up-long-line"></i>
+                </button>
+              </div>
+            </form>
+            <ul class="list-unstyled mt-5 d-flex justify-content-center gap-3">
+              <li>
+                <span class="footer-social-btn"><i class="ri-facebook-fill"></i></span>
+              </li>
+               <li>
+                <span class="footer-social-btn"><i class="ri-instagram-fill"></i></span>
+              </li>
+              <li>
+                <span class="footer-social-btn"><i class="ri-linkedin-fill"></i></span>
+              </li>
+              <li>
+                <span class="footer-social-btn"><i class="ri-mail-fill"></i></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- main footer section end -->
+
+  </footer>
+
+  <!-- bootstrap -->
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/cart.js"></script>
+</body>
+
+</html>
