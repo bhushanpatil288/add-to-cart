@@ -2,6 +2,14 @@
 
 /* cart section start */
 
+.cart-wrapper{
+    max-height: 850px;
+    overflow-y: auto;
+}
+.cart-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
 .closeBtn{
     width: 20px;
     height: 26px;

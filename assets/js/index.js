@@ -88,7 +88,7 @@ function renderProducts(){
     toyCardsContainer.innerHTML = "";
     products.forEach((product,idx)=>{
         toyCardsContainer.innerHTML += `
-        <div class="col-3 gy-4">
+        <div class="col-12 col-sm-6 col-md-4 col-xl-3 gy-4">
             <div class="toy-card bg-white px-3 py-2 rounded-4 shadow">
               <div class="overflow-hidden">
                 <img class="img-fluid" src="${product.path}" alt="${product.name}">
