@@ -36,12 +36,12 @@ function renderCart(){
                             <!-- quantity & price -->
                             <div class="d-flex justify-content-between w-100 align-items-center">
                                 <div class="quantity-wrapper px-2 py-1 rounded-5 d-flex gap-3 align-items-center justify-content-center">
-                                    <button class="btn bg-white rounded-circle m-1 shadow increase"><i class="ri-subtract-line"></i></button>
+                                    <button onClick="decreaseQty(${item.id})" class="btn bg-white rounded-circle m-1 shadow increase"><i class="ri-subtract-line"></i></button>
                                     <span class="mt-2">${item.quantity}</span>
-                                    <button class="btn bg-white rounded-circle shadow decrease"><i class="ri-add-line"></i></button>
+                                    <button onClick="increaseQty(${item.id})" class="btn bg-white rounded-circle shadow decrease"><i class="ri-add-line"></i></button>
                                 </div>
                                 <div>
-                                    <p class="m-0 text-primary-custom fs-3 fw-bold">${(item.price * item.quantity).toFixed(2)}</p>
+                                    <p class="m-0 text-primary-custom fs-3 fw-bold">$${(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
                             </div>
 
@@ -52,6 +52,26 @@ function renderCart(){
             </div>
         `
     })
+}
+
+function increaseQty(id){
+    const cart = loadLocalStorage();
+    const idx = cart.findIndex(item => item.id === id)
+    cart[idx].quantity++;
+    saveLocalStorage(cart);
+    renderCart()
+}
+
+function decreaseQty(id){
+    const cart = loadLocalStorage();
+    const idx = cart.findIndex(item => item.id === id)
+    if(cart[idx].quantity === 1){
+        removeItem(id)
+        return;
+    }
+    cart[idx].quantity--;
+    saveLocalStorage(cart);
+    renderCart()
 }
 
 function removeItem(id){
