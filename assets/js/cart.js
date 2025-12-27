@@ -1,9 +1,13 @@
 const countBadge = document.querySelectorAll(".countBadge");
 const cartWrapper = document.querySelector(".cart-wrapper");
+const total = document.querySelector(".total");
+const subTotal = document.querySelector(".subTotal");
 
 document.addEventListener('DOMContentLoaded', function(){
     updateBadge();
     renderCart();
+    updateTotal();
+    updateSubTotal();
 })
 
 function renderCart(){
@@ -26,7 +30,7 @@ function renderCart(){
                             
                             <div class="d-flex justify-content-between w-100">
                                 <h4>${item.name}</h4>
-                                <button class="btn" onClick="removeItem(${item.id})"><i class="ri-close-line"></i></button>
+                                <button class="btn closeBtn shadow" onClick="removeItem(${item.id})"><i class="ri-close-line"></i></button>
                             </div>
 
                             <div class="w-100">
@@ -59,7 +63,10 @@ function increaseQty(id){
     const idx = cart.findIndex(item => item.id === id)
     cart[idx].quantity++;
     saveLocalStorage(cart);
-    renderCart()
+    renderCart();
+    updateBadge();
+    updateTotal();
+    updateSubTotal();
 }
 
 function decreaseQty(id){
@@ -71,7 +78,10 @@ function decreaseQty(id){
     }
     cart[idx].quantity--;
     saveLocalStorage(cart);
-    renderCart()
+    renderCart();
+    updateBadge();
+    updateTotal();
+    updateSubTotal();
 }
 
 function removeItem(id){
@@ -79,8 +89,10 @@ function removeItem(id){
     const idx = cart.findIndex(item=> item.id === id);
     cart.splice(idx, 1);
     saveLocalStorage(cart);
-    renderCart()
-    updateBadge
+    renderCart();
+    updateBadge();
+    updateTotal();
+    updateSubTotal();
 }
 
 function loadLocalStorage(){
@@ -100,4 +112,25 @@ function updateBadge(){
   const cart = loadLocalStorage(); 
   const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
   countBadge.forEach(badge => badge.innerHTML = q);
+}
+
+function clearCart(){
+    saveLocalStorage([]);
+    renderCart();
+    updateBadge();
+    updateTotal();
+    updateSubTotal();
+}
+
+function updateTotal(){
+    const cart = loadLocalStorage();
+    let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
+    total.innerHTML = '$ ' + (sum).toFixed(2);
+}
+
+function updateSubTotal(){
+    const cart = loadLocalStorage();
+    let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
+    console.log(sum);
+    subTotal.innerHTML = '$ ' + (sum).toFixed(2);
 }
