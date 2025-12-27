@@ -6,6 +6,9 @@ const products = [
     category: "Musical Toys",
     price: 24.99,
     vendor: "Happy Tunes Toys",
+    ageGroup: "3-6 years",
+    rating: 4.6,
+    reviewsCount: 124,
     path: "./assets/media/images/product-imgs/product-1.png",
     quantity: 1
   },
@@ -15,6 +18,9 @@ const products = [
     category: "Outdoor & Pool Toys",
     price: 18.49,
     vendor: "Splash & Play Co.",
+    ageGroup: "4-8 years",
+    rating: 4.4,
+    reviewsCount: 89,
     path: "./assets/media/images/product-imgs/product-2.png",
     quantity: 1
   },
@@ -24,6 +30,9 @@ const products = [
     category: "Building Toys",
     price: 29.99,
     vendor: "BuildSmart Kids",
+    ageGroup: "3-7 years",
+    rating: 4.7,
+    reviewsCount: 156,
     path: "./assets/media/images/product-imgs/product-3.png",
     quantity: 1
   },
@@ -33,6 +42,9 @@ const products = [
     category: "Soft Toys",
     price: 16.75,
     vendor: "CuddleCraft",
+    ageGroup: "2-5 years",
+    rating: 4.8,
+    reviewsCount: 203,
     path: "./assets/media/images/product-imgs/product-4.png",
     quantity: 1
   },
@@ -42,6 +54,9 @@ const products = [
     category: "Outdoor Playsets",
     price: 89.99,
     vendor: "PlayZone Outdoors",
+    ageGroup: "4-10 years",
+    rating: 4.5,
+    reviewsCount: 67,
     path: "./assets/media/images/product-imgs/product-5.png",
     quantity: 1
   },
@@ -51,6 +66,9 @@ const products = [
     category: "Character Toys",
     price: 21.5,
     vendor: "Monster Fun Factory",
+    ageGroup: "5-9 years",
+    rating: 4.3,
+    reviewsCount: 98,
     path: "./assets/media/images/product-imgs/product-6.png",
     quantity: 1
   },
@@ -60,6 +78,9 @@ const products = [
     category: "Educational Toys",
     price: 19.95,
     vendor: "Learn & Play Woodworks",
+    ageGroup: "3-6 years",
+    rating: 4.9,
+    reviewsCount: 312,
     path: "./assets/media/images/product-imgs/product-7.png",
     quantity: 1
   },
@@ -69,10 +90,14 @@ const products = [
     category: "Robot Toys",
     price: 14.99,
     vendor: "RetroToy Makers",
+    ageGroup: "6-10 years",
+    rating: 4.2,
+    reviewsCount: 141,
     path: "./assets/media/images/product-imgs/product-8.png",
     quantity: 1
-  },
+  }
 ];
+
 
 
 const toyCardsContainer = document.querySelector(".toyCardsContainer");
