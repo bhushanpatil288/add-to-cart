@@ -76,12 +76,13 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function renderProducts(){
+    toyCardsContainer.innerHTML = "";
     products.forEach((product,idx)=>{
         toyCardsContainer.innerHTML += `
         <div class="col-3 gy-4">
             <div class="toy-card bg-white px-3 py-2 rounded-4 shadow">
               <div class="overflow-hidden">
-                <img class="img-fluid" src="${product.path}" alt="">
+                <img class="img-fluid" src="${product.path}" alt="${product.name}">
               </div>
               <div class="d-flex justify-content-around flex-column">
                 <div>
@@ -108,8 +109,8 @@ function alreadyExists(id){
 }
 
 function addToCart(id){
+  const cart = loadLocalStorage();
   if(alreadyExists(id)){
-    const cart = loadLocalStorage();
     const idx = cart.findIndex(product => product.id === id);
     console.log(idx);
     cart[idx].quantity++;
@@ -120,8 +121,7 @@ function addToCart(id){
     return;
   }
   const product = products.find(p => id === p.id);
-  const cart = loadLocalStorage();
-  cart.push(product);
+  cart.push({...product, quantity: 1});
   saveLocalStorage(cart);
   updateBadge();
 }
