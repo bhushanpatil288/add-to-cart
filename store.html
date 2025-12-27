@@ -127,7 +127,20 @@
                   <option value="12">Toddler Toys</option>
                   <option value="13">Vehicle Toys</option>
                 </select>
-                <button type="submit" class="btn bg-primary-custom text-white" id="catFilterBtn">Apply</button>
+                <button type="submit" class="btn bg-primary-custom text-white applyBtn" id="catFilterBtn">Apply</button>
+              </div>
+            </form>
+            <form class="d-flex flex-column justify-content-between align-items-center mt-5">
+              <div class="d-flex gap-5">
+                <p>At least <span class="minimum fw-bold">$0</span></p>
+                <p>At most <span class="maximum fw-bold">$100</span></p>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="d-flex justify-content-center align-items-center">
+                  <input id="min-range" type="range" min="0" max="100" value="0">
+                  <input id="max-range" type="range" min="0" max="100" value="100">
+                </div>
+                <button class="btn bg-primary-custom text-white applyBtn" id="minMaxFilterBtn">Apply</button>
               </div>
             </form>
           </div>

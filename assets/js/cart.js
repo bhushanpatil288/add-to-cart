@@ -131,6 +131,5 @@ function updateTotal(){
 function updateSubTotal(){
     const cart = loadLocalStorage();
     let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
-    console.log(sum);
     subTotal.innerHTML = '$ ' + (sum).toFixed(2);
 }

@@ -1,6 +1,11 @@
 const countBadge = document.querySelectorAll(".countBadge");
 const toyCardsContainer = document.querySelector(".toyCardsContainer"); 
 const catFilterBtn = document.querySelector("#catFilterBtn");
+const minMaxFilterBtn = document.querySelector("#minMaxFilterBtn");
+const minSlider = document.querySelector("#min-range");
+const maxSlider = document.querySelector("#max-range");
+const minDisplay = document.querySelector(".minimum");
+const maxDisplay = document.querySelector(".maximum");
 
 const products = [
   {
@@ -206,6 +211,7 @@ document.addEventListener('DOMContentLoaded', function(){
     renderProducts(products);
     updateBadge();
 
+    // category filter
     catFilterBtn.addEventListener('click', (e)=>{
         e.preventDefault();
         const catFilter = document.querySelector("#cat-filter").value;
@@ -214,12 +220,35 @@ document.addEventListener('DOMContentLoaded', function(){
             return;
         }
         const FilteredProducts = products.filter(product=> product.category === categories_filter[catFilter]);
-        console.log(FilteredProducts);
         renderProducts(FilteredProducts);
+    })
+
+    // price range filter
+    minSlider.addEventListener('change', ()=>{
+        updateMin(minSlider.value)
+    })
+    maxSlider.addEventListener('change', ()=>{
+        updateMax(maxSlider.value);
+    })
+
+    minMaxFilterBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const minimumValue = minSlider.value;
+        const maximumValue = maxSlider.value;
         
+        const FilteredProducts = products.filter(product => product.price >= minimumValue && product.price <= maximumValue)
+        renderProducts(FilteredProducts);
     })
 
 })
+
+function updateMin(value){
+    minDisplay.innerHTML = value;
+}
+
+function updateMax(value){
+    maxDisplay.innerHTML = value;
+}
 
 function loadLocalStorage(){
     const cart = JSON.parse(localStorage.getItem('cart'));
