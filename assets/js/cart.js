@@ -115,11 +115,17 @@ function updateBadge(){
 }
 
 function clearCart(){
+    const cart = loadLocalStorage();
+    if(cart.length === 0){
+        fireToast("error", "Cart is already emplty");
+        return;
+    }
     saveLocalStorage([]);
     renderCart();
     updateBadge();
     updateTotal();
     updateSubTotal();
+    fireToast("warning", "Cart has been cleared")
 }
 
 function updateTotal(){
@@ -132,4 +138,22 @@ function updateSubTotal(){
     const cart = loadLocalStorage();
     let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
     subTotal.innerHTML = '$ ' + (sum).toFixed(2);
+}
+
+function fireToast(icon, title){
+   const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: icon,
+      title: title
+    });
 }
