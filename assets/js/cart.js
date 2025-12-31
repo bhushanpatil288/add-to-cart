@@ -1,4 +1,13 @@
-const countBadge = document.querySelectorAll(".countBadge");
+import { countBadge, updateBadge, fireToast  } from "./utils/utils.js";
+import { loadLocalStorage, saveLocalStorage } from "./utils/storage.js";
+
+window.countBadge = countBadge;
+
+window.loadLocalStorage = loadLocalStorage;
+window.saveLocalStorage = saveLocalStorage;
+window.fireToast = fireToast;
+window.updateBadge = updateBadge;
+
 const cartWrapper = document.querySelector(".cart-wrapper");
 const total = document.querySelector(".total");
 const subTotal = document.querySelector(".subTotal");
@@ -69,6 +78,8 @@ function increaseQty(id){
     updateSubTotal();
 }
 
+window.increaseQty = increaseQty;
+
 function decreaseQty(id){
     const cart = loadLocalStorage();
     const idx = cart.findIndex(item => item.id === id)
@@ -84,6 +95,8 @@ function decreaseQty(id){
     updateSubTotal();
 }
 
+window.decreaseQty = decreaseQty;
+
 function removeItem(id){
     const cart = loadLocalStorage();
     const idx = cart.findIndex(item=> item.id === id);
@@ -95,24 +108,7 @@ function removeItem(id){
     updateSubTotal();
 }
 
-function loadLocalStorage(){
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    if(!cart){
-        return [];
-    } else {
-        return cart;
-    }
-}
-
-function saveLocalStorage(cart){
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function updateBadge(){
-  const cart = loadLocalStorage(); 
-  const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
-  countBadge.forEach(badge => badge.innerHTML = q);
-}
+window.removeItem = removeItem
 
 function clearCart(){
     const cart = loadLocalStorage();
@@ -128,6 +124,8 @@ function clearCart(){
     fireToast("warning", "Cart has been cleared")
 }
 
+window.clearCart = clearCart;
+
 function updateTotal(){
     const cart = loadLocalStorage();
     let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
@@ -138,22 +136,4 @@ function updateSubTotal(){
     const cart = loadLocalStorage();
     let sum = cart.reduce((sum, item) => sum+=item.quantity*item.price, 0);
     subTotal.innerHTML = '$ ' + (sum).toFixed(2);
-}
-
-function fireToast(icon, title){
-   const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: icon,
-      title: title
-    });
 }

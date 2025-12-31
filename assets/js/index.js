@@ -1,4 +1,17 @@
-// constants
+import { fireToast, addToCart, alreadyExists, updateBadge, toyCardsContainer, countBadge } from "./utils/utils.js";
+import { loadLocalStorage, saveLocalStorage } from "./utils/storage.js";
+
+
+window.addToCart = addToCart;
+window.loadLocalStorage = loadLocalStorage;
+window.saveLocalStorage = saveLocalStorage;
+window.fireToast = fireToast;
+window.alreadyExists = alreadyExists;
+window.updateBadge = updateBadge;
+window.toyCardsContainer = toyCardsContainer;
+window.countBadge = countBadge;
+
+
 const products = [
   {
     id: 1,
@@ -105,17 +118,6 @@ const products = [
   },
 ];
 
-
-
-const toyCardsContainer = document.querySelector(".toyCardsContainer");
-const countBadge = document.querySelector(".countBadge");
-
-
-document.addEventListener("DOMContentLoaded", function(){
-    renderProducts(products);
-    updateBadge();
-})
-
 function renderProducts(products){
     const cart = loadLocalStorage();
     toyCardsContainer.innerHTML = "";
@@ -176,67 +178,11 @@ function renderProducts(products){
         }
     })
 }
+window.renderProducts = renderProducts;
 
-function alreadyExists(id){
-  const cart = loadLocalStorage();
-  return cart.find(product=>product.id === id);
-}
+window.products = products;
 
-function addToCart(id){
-  const clickedBtn = document.querySelector(`.add-to-cart-btn-${id}`);
-  const cart = loadLocalStorage();
-  if(alreadyExists(id)){
-    clickedBtn.innerHTML = `<span class="fs-5"><i class="ri-shopping-bag-4-line"></i></span>
-                            <p class="m-0">Add to cart</p>`;
-    const idx = cart.findIndex(item => item.id === id);                       
-    cart.splice(idx, 1);
-    saveLocalStorage(cart);
+document.addEventListener("DOMContentLoaded", function(){
+    renderProducts(products);
     updateBadge();
-    fireToast("info", "Removed from cart");
-    return;
-  }
-  const product = products.find(p => id === p.id);
-  cart.push({...product, quantity: 1});
-  clickedBtn.innerHTML = `<span class="fs-5"><i class="ri-checkbox-circle-fill"></i></span>
-                          <p class="m-0">Added to cart</p>`;
-  saveLocalStorage(cart);
-  updateBadge();
-  fireToast("success", "Added to cart");
-}
-
-function loadLocalStorage(){
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    if(!cart){
-        return [];
-    } else {
-        return cart;
-    }
-}
-
-function saveLocalStorage(cart){
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function updateBadge(){
-  const cart = loadLocalStorage(); 
-  const q = cart.reduce((sum, item) => sum+=item.quantity, 0);
-  countBadge.innerHTML = q;
-}
-
-function fireToast(icon, title){
-   const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: icon,
-      title: title
-    });
-}
+})
